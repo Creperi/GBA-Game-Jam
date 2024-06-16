@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     private float rotationSpeed = 500.0f;
+    [SerializeField]
+    private Animation playerAnimation;
 
     void Start()
     {
@@ -27,13 +29,13 @@ public class CharacterMovement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            // Calculate movement direction
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
             Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;
 
             if (direction.magnitude >= 0.1f)
             {
+                playerAnimation.Play();
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSpeed, 0.1f);
@@ -50,6 +52,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 moveDirection.x = 0;
                 moveDirection.z = 0;
+                playerAnimation.Stop();
             }
         }
 

@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Star;
+    public GameObject[] Star;
     void Start()
     {
-        
+        Star = GameObject.FindGameObjectsWithTag("Collectible");
     }
 
     // Update is called once per frame
@@ -18,8 +18,9 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(gameObject == other.CompareTag("Collectible")){
-            Destroy(Star);
+        if (other.CompareTag("Collectible"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
