@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectible
+  - Destroyer
   layers:
   - Default
   - TransparentFX
