@@ -18,9 +18,17 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = player.position - transform.position;
+        Vector3 direction = player.position - transform.position;
         direction.Normalize();
-        movement = direction;
+        movement = new Vector2(direction.x, direction.y);
+        if (direction.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, -90, 0); // Face left
+        }
+        else if (direction.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0); // Face right
+        }
     }
 
     void FixedUpdate()
@@ -35,7 +43,8 @@ public class EnemyBehavior : MonoBehaviour
 
     void MoveEnemy(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.fixedDeltaTime));
+        Vector3 move = new Vector3(direction.x, 0.0f, direction.y);
+        rb.MovePosition(transform.position + move * speed * Time.fixedDeltaTime);
     }
     private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))

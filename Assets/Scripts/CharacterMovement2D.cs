@@ -6,7 +6,7 @@ public class CharacterMovement2D : MonoBehaviour
 {
     [SerializeField]
     private float maxSpeed;
-    private Vector2 forceDirection;
+    private Vector3 forceDirection;
 
     [SerializeField]
     private float jumpSpeed;
@@ -14,59 +14,47 @@ public class CharacterMovement2D : MonoBehaviour
 
     [SerializeField]
     private float gravity = 9.8f;
-    private Vector2 moveDirection = Vector2.zero;
-    private Rigidbody rb;
-    [SerializeField]
-    private Animator playerAnimator;
+    private Vector3 moveDirection = Vector3.zero;
+    private CharacterController controller;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        if (Mathf.Abs(horizontal) > 0.1f)
+        if (controller.isGrounded)
         {
-            playerAnimator.SetBool("isWalking", true);
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;
 
-            moveDirection.x = horizontal * maxSpeed;
-
-            // Flip character sprite based on movement direction
-            if (horizontal > 0 && transform.localScale.x < 0 || horizontal < 0 && transform.localScale.x > 0)
+            if (Input.GetButton("Jump"))
+                {
+                    moveDirection.y = jumpSpeed;
+                }
+                
+            if (direction.magnitude >= 0.1f)
             {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                // Ensure the character faces the direction of movement
+                transform.forward = direction;
+
+                moveDirection = direction * maxSpeed;
+
+                if (Input.GetButton("Jump"))
+                {
+                    moveDirection.y = jumpSpeed;
+                }
+            }
+            else
+            {
+                moveDirection.x = 0;
+                moveDirection.z = 0;
             }
         }
-        else
-        {
-            moveDirection.x = 0;
-            playerAnimator.SetBool("isWalking", false);
-        }
 
-        // Jumping
-        if (isGrounded && Input.GetKey("space"))
-        {
-            moveDirection.y = jumpSpeed;
-            isGrounded = false;
-            playerAnimator.SetTrigger("jump");
-        }
-
-        // Apply gravity
-        if (!isGrounded)
-        {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        rb.velocity = new Vector2(moveDirection.x, rb.velocity.y);
-
-        // Detect if grounded
-        if (rb.velocity.y == 0)
-        {
-            isGrounded = true;
-        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }
