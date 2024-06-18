@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectible
   - Destroyer
+  - Ladder
   layers:
   - Default
   - TransparentFX
