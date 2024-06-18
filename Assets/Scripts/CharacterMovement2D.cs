@@ -27,8 +27,8 @@ public class CharacterMovement2D : MonoBehaviour
         if (controller.isGrounded)
         {
             float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;
+            // float vertical = Input.GetAxis("Vertical");
+            Vector3 direction = new Vector3(horizontal, 0.0f, 0.0f).normalized;
 
             if (Input.GetButton("Jump"))
                 {
@@ -50,7 +50,6 @@ public class CharacterMovement2D : MonoBehaviour
             else
             {
                 moveDirection.x = 0;
-                moveDirection.z = 0;
             }
         }
 
