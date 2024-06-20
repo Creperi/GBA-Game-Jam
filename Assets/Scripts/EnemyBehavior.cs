@@ -51,6 +51,9 @@ public class EnemyBehavior : MonoBehaviour
         {
             EnemyAnimator.SetBool("isAttacking", true);
         }
+        if(other.CompareTag("Hammer")){
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerExit(Collider other){
         if (other.CompareTag("Player"))

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2359101926352415619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4276569262432393041}
+  m_Layer: 0
+  m_Name: HammerPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4276569262432393041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359101926352415619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -2.14, y: 3.72, z: 0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7118235424055540224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5230477314654106899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,7 +106,11 @@ PrefabInstance:
     - {fileID: 3987617657965639613, guid: 9eb47f6c04b6894419b48646ad0ac8dc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7519488451788060951, guid: 9eb47f6c04b6894419b48646ad0ac8dc, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3053280021878460179, guid: 9eb47f6c04b6894419b48646ad0ac8dc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4276569262432393041}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2383739749357360553, guid: 9eb47f6c04b6894419b48646ad0ac8dc,
         type: 3}
@@ -86,9 +121,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7056187836522325469}
   m_SourcePrefab: {fileID: 100100000, guid: 9eb47f6c04b6894419b48646ad0ac8dc, type: 3}
---- !u!95 &7446497903578685375 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3441072289713351340, guid: 9eb47f6c04b6894419b48646ad0ac8dc,
+--- !u!4 &7118235424055540224 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3053280021878460179, guid: 9eb47f6c04b6894419b48646ad0ac8dc,
     type: 3}
   m_PrefabInstance: {fileID: 5230477314654106899}
   m_PrefabAsset: {fileID: 0}
@@ -114,8 +149,8 @@ MonoBehaviour:
   jumpSpeed: 5
   isWalking: 0
   isGrounded: 1
+  rb: {fileID: 0}
   gravity: 9.8
-  playerAnimator: {fileID: 7446497903578685375}
 --- !u!54 &7056187836522325469
 Rigidbody:
   m_ObjectHideFlags: 0
