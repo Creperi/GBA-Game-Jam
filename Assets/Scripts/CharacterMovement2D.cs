@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement2D : MonoBehaviour
 {
+    
     [SerializeField]
     private float maxSpeed;
     private Vector3 forceDirection;
@@ -20,6 +21,7 @@ public class CharacterMovement2D : MonoBehaviour
     private float climbSpeed = 5.0f;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
+    private float velocity = 3.0f;
 
     void Start()
     {
@@ -62,26 +64,13 @@ public class CharacterMovement2D : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
         if (isClimbing)
         {
-            Climb();
-        }
-    }
-
-    private void Climb()
-    {
-        rb.useGravity = false;
-        climbDirection = new Vector3(0, Input.GetAxis("Vertical") * climbSpeed, 0);
-        
-        // Use CharacterController for smooth movement
-        if (controller != null)
-        {
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 climbDirection = new Vector3(0, verticalInput * climbSpeed, 0);
             controller.Move(climbDirection * Time.deltaTime);
         }
-        // Or use Rigidbody if you prefer physics-based movement
-        else if (rb != null)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, climbDirection.y, rb.velocity.z);
-        }
+
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -89,6 +78,7 @@ public class CharacterMovement2D : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             isClimbing = true;
+            rb.useGravity = false; 
         }
     }
 

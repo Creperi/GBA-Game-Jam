@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         Star = GameObject.FindGameObjectsWithTag("Collectible");
-        TotalStars.text = Star.Length.ToString();
+        TotalStars.text = stars.ToString() + "/" + Star.Length.ToString();
         Hammer = GameObject.FindGameObjectWithTag("Hammer");
         HammerAnimation.Stop();
         PlayerAnimator = GetComponent<Animator>();
@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
         for(int i = 0; i < Star.Length; i++){
             Star[i].GetComponent<Transform>().transform.Rotate(Vector3.up * 50f * Time.deltaTime);
         }
+        
     }
     // Update is called once per frame
     void Update()
@@ -44,7 +45,7 @@ public class PlayerScript : MonoBehaviour
         if (other.CompareTag("Collectible"))
         {
             stars += 1;
-            CollectedStars.text = stars.ToString();
+            // CollectedStars.text = stars.ToString() + "/";
             Destroy(other.gameObject);
         }
         if (other.CompareTag("Hammer"))

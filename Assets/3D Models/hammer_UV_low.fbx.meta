@@ -3,7 +3,17 @@ guid: 26d030ace2cd5634cba3b369a5e2e20e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hammer_head_M
+    second: {fileID: 2100000, guid: a164d63cd1e383e44b1fb10efb350f90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handle_M
+    second: {fileID: 2100000, guid: 70565239098607c449dda9109c97a304, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
