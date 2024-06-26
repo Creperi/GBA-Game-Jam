@@ -3627,6 +3627,16 @@ PrefabInstance:
       propertyPath: HammerAnimation
       value: 
       objectReference: {fileID: 278924748}
+    - target: {fileID: 8506509261920791516, guid: 2e5c8e2438bc7cb42b4fa2331dc17772,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d696d59e50c5bfc4fad3b6071cbd9a9c, type: 2}
+    - target: {fileID: 8506509261920791516, guid: 2e5c8e2438bc7cb42b4fa2331dc17772,
+        type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2829c5a81b5f9f146b0b780e877fd67b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2359101926352415619, guid: 2e5c8e2438bc7cb42b4fa2331dc17772, type: 3}
