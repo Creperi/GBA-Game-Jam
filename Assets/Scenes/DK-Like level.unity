@@ -3147,6 +3147,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 673216981530268085, guid: a623a401702229343a9e5f6ec0647bbe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f92b5f7c9bb76fd47b2b36b1ebbedff7, type: 2}
     - target: {fileID: 1316964990831663220, guid: a623a401702229343a9e5f6ec0647bbe,
         type: 3}
       propertyPath: m_Name
@@ -3372,6 +3377,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: heater_guy_low@Walking
       objectReference: {fileID: 0}
+    - target: {fileID: 3142494312570724960, guid: a2411f41e280ec249a245948564f3d59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f92b5f7c9bb76fd47b2b36b1ebbedff7, type: 2}
+    - target: {fileID: 3142494312570724960, guid: a2411f41e280ec249a245948564f3d59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: e974c831da64de74496149dd3943c02f, type: 2}
+    - target: {fileID: 3142494312570724960, guid: a2411f41e280ec249a245948564f3d59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: d931c3b0d2625d54497e0da0460c56e5, type: 2}
     - target: {fileID: 7341223982633957968, guid: a2411f41e280ec249a245948564f3d59,
         type: 3}
       propertyPath: m_Height
@@ -3627,6 +3647,11 @@ PrefabInstance:
       propertyPath: HammerAnimation
       value: 
       objectReference: {fileID: 278924748}
+    - target: {fileID: 8506509261920791516, guid: 2e5c8e2438bc7cb42b4fa2331dc17772,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e05a778c49bdc1479d3585970938203, type: 2}
     - target: {fileID: 8506509261920791516, guid: 2e5c8e2438bc7cb42b4fa2331dc17772,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
