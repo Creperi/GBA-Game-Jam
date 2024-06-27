@@ -8,6 +8,7 @@ TagManager:
   - Destroyer
   - Ladder
   - Hammer
+  - Enemy
   layers:
   - Default
   - TransparentFX

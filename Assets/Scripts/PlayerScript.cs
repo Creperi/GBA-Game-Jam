@@ -57,6 +57,14 @@ public class PlayerScript : MonoBehaviour
             other.gameObject.transform.localRotation = Quaternion.identity;
 
         }
+        if(other.CompareTag("Ladder")){
+            Hammer.SetActive(false);
+        }
+    }
+    private void OnTriggerExit(Collider other){
+        if(other.CompareTag("Ladder")){
+            Hammer.SetActive(true);
+        }
     }
     private IEnumerator PlayAnimationForDuration(string animName, float duration)
     {
